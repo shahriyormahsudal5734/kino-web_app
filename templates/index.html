@@ -1,0 +1,612 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Filmlane - Best movie collections</title>
+
+  <!-- 
+    - favicon
+  -->
+  <link rel="shortcut icon" href="{% static './favicon.svg' %}" type="image/svg+xml">
+
+  <!-- 
+    - custom css link
+  -->
+  <link rel="stylesheet" href="{% static './css/style.css' %}">
+
+  <!-- 
+    - google font link
+  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body id="top">
+
+  <!-- 
+    - #HEADER
+  -->
+
+
+  
+
+  <header class="header" data-header>
+    <div class="container">
+
+      <div class="overlay" data-overlay></div>
+
+      <a href="{% url 'home'%}" class="logo">
+        <img src=" {% static 'images/logo.svg'%} " alt="Filmlane logo">
+      </a>
+
+
+
+      <button class="menu-open-btn" data-menu-open-btn>
+        <ion-icon name="reorder-two"></ion-icon>
+      </button>
+
+      <nav class="navbar" data-navbar>
+
+        <div class="navbar-top">
+
+          <a href="{% url 'home' %}" class="logo">
+            <img src="../static/images/logo.svg" alt="Filmlane logo">
+          </a>
+
+          <button class="menu-close-btn" data-menu-close-btn>
+            <ion-icon name="close-outline"></ion-icon>
+          </button>
+
+        </div>
+
+        <ul class="navbar-list">
+
+          <li>
+            <a  href="{% url 'home' %}"  class="navbar-link">Home</a>
+          </li>
+
+          <li>
+            <a href="#" class="navbar-link">Movie</a>
+          </li>
+
+          <li>
+            <a href="#" class="navbar-link">Tv Show</a>
+          </li>
+
+          <li>
+            <a href="#" class="navbar-link">Web Series</a>
+          </li>
+
+          <li>
+            <a href="#" class="navbar-link">Pricing</a>
+          </li>
+
+        </ul>
+
+
+
+      </nav>
+
+    </div>
+  </header>
+
+
+
+
+
+  <main>
+    <article>
+
+
+
+      <section style=" background: url(../static/images/hero-bg.jpg) no-repeat;
+      background-size: cover;
+      background-position: center;" class="hero">
+        <div class="container">
+
+          <div class="hero-content">
+
+            <p class="hero-subtitle">Filmlane</p>
+
+            <h1 class="h1 hero-title">
+              Unlimited <strong>Movie</strong>, TVs Shows, & More.
+            </h1>
+
+            <div class="meta-wrapper">
+
+              <div class="badge-wrapper">
+                <div class="badge badge-fill">PG 18</div>
+
+                <div class="badge badge-outline">HD</div>
+              </div>
+
+
+               
+              <div class="ganre-wrapper">
+                <a href="#">Romance,</a>
+
+                <a href="#">Drama</a>
+              </div>
+
+              <div class="date-time">
+
+                <div>
+                  <ion-icon name="calendar-outline"></ion-icon>
+
+                  <time datetime="2022">2022</time>
+                </div>
+
+                <div>
+                  <ion-icon name="time-outline"></ion-icon>
+
+                  <time datetime="PT128M">128 min</time>
+                </div>
+
+              </div>
+
+            </div>
+
+            <button  style=" display: flex; color: black; background-color: hsl(57, 97%, 45%);" id="hy2" class="btn btn-primary">
+              <ion-icon name="play"></ion-icon>
+              <span>Watch</span>
+
+    
+            </button>
+
+          </div>
+
+        </div>
+      </section>
+
+<style>
+#i8{
+  display: flex;
+  justify-content: center;
+  padding: 4px 0;
+  margin: 5px 0;
+
+}
+.movie-card{
+background-color: rgba(55, 45, 45, 0.542);
+padding: 8px;
+background-blend-mode: color-burn;
+}
+  #hy2:hover > #hy{
+    color: black !important;
+  }
+  .movie-card {
+     width: 300px;
+    
+            }
+
+            .pagination{
+              display: flex;
+              justify-content: center;
+              gap: 2px;
+            }
+            .pagination li {
+             
+              background-color: #105547;
+              width: 30px;
+              height: 30px;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              color: #fff;
+    font-weight: 600;
+    font-size: 16px;
+    border-radius: 5px;
+    background: #3A86FF;
+            }
+.fff{
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+.btn {
+    display: inline-block;
+    border: none;
+    background-color: transparent;
+    font-size: 18px;
+    cursor: pointer;
+}
+.upcoming .movies-list > li {
+  min-width: auto !important;
+}
+            .pagination li a{
+              color: white !important;
+            }
+          @media screen and (max-width:1000px){
+            .movie-card{
+     width: 250px;
+    
+            }
+            
+          }
+          @media screen and (max-width:570px){
+            .upcoming .movies-list > li {
+margin: 20px 0 !important;
+}
+            
+          }
+
+
+</style>
+
+      <section class="upcoming">
+        <div class="container">
+          <div class="flex-wrapper">
+            <div class="title-wrapper">
+              <p class="section-subtitle">Online Streaming</p>
+            <h2 class="h2 section-title">Upcoming Movies</h2>
+            </div>
+          </div>
+          <ul id="fs" style="display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; align-items: center;" class="movies-list ">
+          </ul>
+
+
+<script>
+
+'{% for post in object_list %}'
+
+
+
+
+document.getElementById('fs').prepend(
+`
+<li>
+
+  <div class="movie-card">
+    {% if user.is_superuser %}
+   
+
+   <div class="fff">
+    <a id='i8' style="width:50px !important; background:gray;" href="{% url 'updatekino' post.pk %}">
+                      <img width=30 src="../static/update-icon-svgrepo-com.png">
+                      
+       </a>
+    <a id='i8' style="width:50px !important; background:gray;" href="{% url 'delkino' post.pk %}">
+      <svg width="30px" height="30px" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+
+<defs>
+<style>.cls-1{fill:#00df8e;}.cls-2{fill:#bfffc8;}</style>
+</defs>
+<title/>
+<g id="fill">
+<path class="cls-1" d="M27.35,8.49h-5s0-.08,0-.12a6.37,6.37,0,0,0-12.74,0s0,.08,0,.12h-5a1,1,0,1,0,0,1.93h2.7V26.14A3.86,3.86,0,0,0,11.21,30h9.58a3.86,3.86,0,0,0,3.86-3.86V10.42h2.7a1,1,0,1,0,0-1.93ZM11.56,8.37a4.44,4.44,0,0,1,8.88,0s0,.08,0,.12H11.54S11.56,8.41,11.56,8.37Z"/>
+<path class="cls-2" d="M12.76,25a1,1,0,0,1-1-1V15.4a1,1,0,0,1,1.93,0v8.65A1,1,0,0,1,12.76,25Z"/>
+
+<path class="cls-2" d="M19.24,25a1,1,0,0,1-1-1V15.4a1,1,0,0,1,1.93,0v8.65A1,1,0,0,1,19.24,25Z"/>
+
+</g>
+
+</svg>
+       </a>
+
+      </div>
+      {% else %}
+  
+  {% endif %}
+       
+                <a href="{% url 'kino' post.pk %}">
+                  <figure class="card-banner">
+      <img src="{{post.img_url}}" alt="The Northman movie poster">
+                  </figure>
+                </a>
+
+                <div class="title-wrapper">
+                  <a  href="{% url 'kino' post.pk %}">
+                    {% if post.title|length > 27%}
+                    <h3 style="height:40px;" class="card-title">{{post.title|slice:27}}...</h3>
+                 {% else%}
+                 <h3 style="height:40px;" class="card-title">{{post.title|slice:27}}</h3>
+                 {% endif%}
+
+                 </a>
+
+
+                  <time >{{post.kino_yili}} yil</time>
+                </div>
+
+                <div class="card-meta">
+                  <div class="badge badge-outline">{{post.sifati}}</div>
+
+                  <div class="duration">
+                    <ion-icon name="time-outline"></ion-icon>
+
+                    <time datetime="PT137M">{{post.nechaminut}} min</time>
+                  </div>
+
+                  <div class="rating">
+                    <ion-icon name="calendar-outline"></ion-icon>
+
+                    <data>{{post.time|timesince}}</data>
+
+                
+                  </div>
+                </div>
+
+  </div>
+</li>
+`
+
+)
+
+
+
+'{% endfor %}'
+
+
+
+
+document.getElementById('fs').innerHTML =document.getElementById('fs').innerText
+
+</script>
+
+<br>
+<div class="center">
+
+  <div class="pagination">
+
+    {% if page_obj.has_previous %}
+    <li><a style="  color: white !important;" href="?page=1"><<</a></li>
+    <li><a style="  color: white !important;" href="?page={{ page_obj.previous_page_number }}"><</a></li>
+
+{% endif %}
+
+{% for i in paginator.page_range %}
+    <li {% if page_obj.number == i %} style="    background: #153a28; " class="active" {% endif %}><a  href="?page={{i}}">{{i}}</a></li>
+{% endfor %}
+
+{% if page_obj.has_next %}
+    <li><a href="?page={{ page_obj.next_page_number }}">></a></li>
+    <li><a href="?page={{ page_obj.paginator.num_pages }}">>></a></li>
+{% endif %}
+
+  </div>
+</div>
+<br>
+
+
+ 
+
+
+
+        </div>
+      </section>
+
+
+
+
+
+      <section class="service">
+        <div class="container">
+
+          <div class="service-content">
+
+            <p class="service-subtitle">Our Services</p>
+
+            <h2 class="h2 service-title">Download Your Shows Watch Offline.</h2>
+
+            <p class="service-text">
+              Lorem ipsum dolor sit amet, consecetur adipiscing elseddo eiusmod tempor.There are many variations of
+              passages of lorem
+              Ipsum available, but the majority have suffered alteration in some injected humour.
+            </p>
+
+            <ul class="service-list">
+
+              <li>
+                <div class="service-card">
+
+                  <div class="card-icon">
+                    <ion-icon name="tv"></ion-icon>
+                  </div>
+
+                  <div class="card-content">
+                    <h3 class="h3 card-title">Enjoy on Your TV.</h3>
+
+                    <p class="card-text">
+                      Lorem ipsum dolor sit amet, consecetur adipiscing elit, sed do eiusmod tempor.
+                    </p>
+                  </div>
+
+                </div>
+              </li>
+
+              <li>
+                <div class="service-card">
+
+                  <div class="card-icon">
+                    <ion-icon name="videocam"></ion-icon>
+                  </div>
+
+                  <div class="card-content">
+                    <h3 class="h3 card-title">Watch Everywhere.</h3>
+
+                    <p class="card-text">
+                      Lorem ipsum dolor sit amet, consecetur adipiscing elit, sed do eiusmod tempor.
+                    </p>
+                  </div>
+
+                </div>
+              </li>
+
+            </ul>
+
+          </div>
+
+        </div>
+      </section>
+
+
+
+
+
+      <section class="cta">
+        <div class="container">
+
+          <div class="title-wrapper">
+            <h2 class="cta-title">Trial start first 30 days.</h2>
+
+            <p class="cta-text">
+              Enter your email to create or restart your membership.
+            </p>
+          </div>
+
+          <form action="" class="cta-form">
+            <input type="email" name="email" required placeholder="Enter your email" class="email-field">
+
+            <button type="submit" class="cta-form-btn">Get started</button>
+          </form>
+
+        </div>
+      </section>
+
+    </article>
+  </main>
+
+
+
+
+
+  <!-- 
+    - #FOOTER
+  -->
+
+  <footer class="footer">
+
+    <div class="footer-top">
+      <div class="container">
+
+        <div class="footer-brand-wrapper">
+
+          <a href="{%url 'home'%}" class="logo">
+            <img src="{% static '/images/logo.svg'%}" alt="Filmlane logo">
+          </a>
+
+          <ul class="footer-list">
+
+            <li>
+              <a href="{% url 'home' %}" class="footer-link">Home</a>
+            </li>
+
+            <li>
+              <a href="#" class="footer-link">Movie</a>
+            </li>
+
+            <li>
+              <a href="#" class="footer-link">TV Show</a>
+            </li>
+
+            <li>
+              <a href="#" class="footer-link">Web Series</a>
+            </li>
+
+            <li>
+              <a href="#" class="footer-link">Pricing</a>
+            </li>
+
+          </ul>
+
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="quicklink-wrapper">
+
+          <ul class="quicklink-list">
+
+            <li>
+              <a href="#" class="quicklink-link">Faq</a>
+            </li>
+
+            <li>
+              <a href="#" class="quicklink-link">Help center</a>
+            </li>
+
+            <li>
+              <a href="#" class="quicklink-link">Terms of use</a>
+            </li>
+
+            <li>
+              <a href="#" class="quicklink-link">Privacy</a>
+            </li>
+
+          </ul>
+
+          <ul class="social-list">
+
+            <li>
+              <a href="#" class="social-link">
+                <ion-icon name="logo-facebook"></ion-icon>
+              </a>
+            </li>
+
+            <li>
+              <a href="#" class="social-link">
+                <ion-icon name="logo-twitter"></ion-icon>
+              </a>
+            </li>
+
+            <li>
+              <a href="#" class="social-link">
+                <ion-icon name="logo-pinterest"></ion-icon>
+              </a>
+            </li>
+
+            <li>
+              <a href="#" class="social-link">
+                <ion-icon name="logo-linkedin"></ion-icon>
+              </a>
+            </li>
+
+          </ul>
+
+        </div>
+
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="container">
+
+        <p class="copyright">
+          &copy; 2022 <a href="#">codewithsadee</a>. All Rights Reserved
+        </p>
+
+        <img src="{% static 'images/footer-bottom-img.png'%} " alt="Online banking companies logo" class="footer-bottom-img">
+
+      </div>
+    </div>
+
+  </footer>
+
+
+
+
+
+
+  <a href="#top" class="go-top" data-go-top>
+    <ion-icon name="chevron-up"></ion-icon>
+  </a>
+
+
+
+
+
+  <script src="{% static '/js/script.js' %}"></script>
+
+
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+</body>
+
+</html>

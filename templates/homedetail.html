@@ -1,0 +1,348 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Free Guy 2021</title>
+
+  
+  <link rel="shortcut icon" href="../static.svg" type="image/svg+xml">
+
+  <!-- 
+    - custom css link
+  -->
+  <link rel="stylesheet" href="../static/css/style.css">
+
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body id="#top">
+
+
+
+
+  <header class="header" data-header>
+    <div class="container">
+
+      <div class="overlay" data-overlay></div>
+
+      <a  href="{% url 'home' %}"  class="logo">
+        <img src="../static/images/logo.svg" alt="Filmlane logo">
+      </a>
+
+
+      <button class="menu-open-btn" data-menu-open-btn>
+        <ion-icon name="reorder-two"></ion-icon>
+      </button>
+
+      <nav class="navbar" data-navbar>
+
+        <div class="navbar-top">
+
+          <a href="{% url 'home' %}"  class="logo">
+            <img src="../static/images/logo.svg" alt="Filmlane logo">
+          </a>
+
+          <button class="menu-close-btn" data-menu-close-btn>
+            <ion-icon name="close-outline"></ion-icon>
+          </button>
+
+        </div>
+
+        <ul class="navbar-list">
+
+          <li>
+            <a href="{% url 'home' %}" class="navbar-link">Home</a>
+          </li>
+
+          <li>
+            <a href="#" class="navbar-link">Movie</a>
+          </li>
+
+          <li>
+            <a href="#" class="navbar-link">Tv Show</a>
+          </li>
+
+          <li>
+            <a href="#" class="navbar-link">Web Series</a>
+          </li>
+
+          <li>
+            <a href="#" class="navbar-link">Pricing</a>
+          </li>
+
+        </ul>
+
+        <ul class="navbar-social-list">
+
+          <li>
+            <a href="#" class="navbar-social-link">
+              <ion-icon name="logo-twitter"></ion-icon>
+            </a>
+          </li>
+
+          <li>
+            <a href="#" class="navbar-social-link">
+              <ion-icon name="logo-facebook"></ion-icon>
+            </a>
+          </li>
+
+          <li>
+            <a href="#" class="navbar-social-link">
+              <ion-icon name="logo-pinterest"></ion-icon>
+            </a>
+          </li>
+
+          <li>
+            <a href="#" class="navbar-social-link">
+              <ion-icon name="logo-instagram"></ion-icon>
+            </a>
+          </li>
+
+          <li>
+            <a href="#" class="navbar-social-link">
+              <ion-icon name="logo-youtube"></ion-icon>
+            </a>
+          </li>
+
+        </ul>
+
+      </nav>
+
+    </div>
+  </header>
+
+<style>
+   #deup {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+   }
+  #deup a{
+    padding: 10px 20px;
+    background-color: tan;
+    width: 100px;
+  }
+</style>
+
+
+
+<style>
+  #video , #gg{
+width: 90%;
+margin: 0 5%;
+  }
+
+
+@media screen and (max-width:1300px){
+  h1{
+    font-size: xx-large !important;
+  }
+  
+}
+
+@media screen and (max-width:1000px){
+  h1{
+    font-size: large !important;
+  }
+  
+}
+
+@media screen and (max-width:500px){
+  #video , #gg{
+width: 98%;
+margin: 0 1%;
+  }
+  
+}
+
+
+</style>
+
+
+
+  <main>
+    <article>
+
+      <section class="movie-detail">
+<center><video  id="video" width="500" controls  src="{{object.url}}"></video>
+</center>
+        <br>
+        <div id="gg" class="container">
+
+
+
+
+          <div class="movie-detail-content">
+
+   
+            <h1 class="h1 detail-title">
+             {{object.title}}
+            </h1>
+
+            <div class="meta-wrapper">
+
+ 
+
+
+
+              <div class="date-time">
+                <div class="badge badge-outline">  {{object.sifati}}</div>
+                <div>
+                  <ion-icon name="calendar-outline"></ion-icon>
+
+                  <time datetime="2021">{{object.kino_yili}}</time>
+                  
+                </div>
+
+                <div>
+                  <ion-icon name="time-outline"></ion-icon>
+
+                  <time datetime="PT115M">{{object.nechaminut}} min</time>
+                </div>
+
+                <div>
+
+                  <button onclick="location.href   = `https://t.me/share/url?url=${location.href}`"  style=" padding: 5px; border-radius: 5px; background-color: rgba(128, 128, 128, 0.371); color: white; display: flex; flex-direction: column; align-items: center;" class="share">
+                    <ion-icon style="color: white;" name="share-social"></ion-icon>
+                
+                    <span style="font-size: x-small;">Share</span>
+                  </button>
+                
+                  <a download href="{{object.url}}"> <button style=" border: none; border-radius: 12px; font-family: var(--ff-poppins) ; font-weight: 500; padding: 10px 20px; background:hsl(57, 97%, 45%); color: rgb(0, 0, 0);"> Yuklab olish</button> </a>
+                
+                </div>
+                
+
+              </div>
+
+
+ 
+
+            </div>
+
+
+
+
+
+          </div>
+
+        </div>
+        <div id="deup">
+
+        </div>
+
+      </section>
+
+
+
+
+
+    </article>
+  </main>
+
+
+
+<br>
+  <footer  class="footer">
+
+
+   
+          <ul class="social-list">
+
+            <li>
+              <a href="#" class="social-link">
+                <ion-icon name="logo-facebook"></ion-icon>
+              </a>
+            </li>
+
+            <li>
+              <a href="#" class="social-link">
+                <ion-icon name="logo-twitter"></ion-icon>
+              </a>
+            </li>
+
+            <li>
+              <a href="#" class="social-link">
+                <ion-icon name="logo-pinterest"></ion-icon>
+              </a>
+            </li>
+
+            <li>
+              <a href="#" class="social-link">
+                <ion-icon name="logo-linkedin"></ion-icon>
+              </a>
+            </li>
+
+          </ul><br>
+          <p class="copyright">
+            &copy; 2022 <a href="#">codewithsadee</a>. All Rights Reserved
+          </p>
+
+
+          <br>
+
+
+  </footer>
+
+
+
+
+
+
+  <a href="#top" class="go-top" data-go-top>
+    <ion-icon name="chevron-up"></ion-icon>
+  </a>
+
+
+
+
+
+  <!-- 
+    - custom js link
+  -->
+  <script src="../static/js/script.js"></script>
+
+  {% if user.is_superuser %}
+  <script>
+    let b = location.href.split('/')
+    b[b.length - 2] = 'update'
+    let s = location.href.split('/')
+    s[s.length - 2] = 'delete'
+    
+    let del = ''
+    s.forEach(element => {
+     del +=  element + '/'
+    
+    })
+    let up = ''
+    b.forEach(element => {
+         up += element +'/'
+
+    })
+    console.log(del);
+    console.log(up);
+    document.getElementById('deup').innerHTML = 
+    `
+    <a href="${del.slice(0,del.length - 1)}" >Delete</a>
+    <a href="${up.slice(0,up.length - 1)}">Update</a>
+    `
+  </script>
+  {% else %}
+
+{% endif %}
+
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+</body>
+
+</html>
